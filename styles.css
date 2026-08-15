@@ -1,0 +1,1088 @@
+/* =========================================
+   CONFIGURACIÓN GENERAL
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    background: #080812;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+
+/* =========================================
+   VARIABLES
+========================================= */
+
+:root {
+    --bg: #080812;
+    --bg-light: #101021;
+    --card: #121225;
+
+    --purple: #8b5cf6;
+    --purple-dark: #6d28d9;
+
+    --blue: #00d9ff;
+    --green: #39ff14;
+    --pink: #ff007f;
+    --red: #ff3b3b;
+
+    --text: #ffffff;
+    --text-gray: #9696ad;
+
+    --border: rgba(139, 92, 246, 0.25);
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header {
+    height: 80px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(8, 8, 18, 0.95);
+
+    border-bottom: 1px solid var(--border);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    backdrop-filter: blur(12px);
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: var(--purple);
+}
+
+.nav {
+    display: flex;
+    gap: 35px;
+}
+
+.nav a {
+    color: #b7b7c9;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.nav a:hover {
+    color: var(--blue);
+    text-shadow: 0 0 10px var(--blue);
+}
+
+.header-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.icon-btn {
+    width: 40px;
+    height: 40px;
+
+    border: 1px solid var(--border);
+    background: var(--card);
+
+    color: white;
+    border-radius: 8px;
+
+    transition: 0.3s;
+}
+
+.icon-btn:hover {
+    color: var(--blue);
+    border-color: var(--blue);
+    box-shadow: 0 0 15px rgba(0, 217, 255, 0.3);
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    min-height: 650px;
+    padding: 80px 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 80% 50%,
+            rgba(139, 92, 246, 0.20),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(0, 217, 255, 0.08),
+            transparent 30%
+        );
+}
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+    width: 400px;
+    height: 400px;
+
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 50%;
+
+    right: 10%;
+}
+
+.hero-content {
+    max-width: 650px;
+    position: relative;
+    z-index: 2;
+}
+
+.small-title {
+    color: var(--blue);
+    font-size: 13px;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(40px, 6vw, 76px);
+    line-height: 1.05;
+    font-weight: 800;
+}
+
+.hero h1 span {
+    color: var(--purple);
+
+    text-shadow:
+        0 0 10px rgba(139, 92, 246, 0.7),
+        0 0 30px rgba(139, 92, 246, 0.3);
+}
+
+.hero-text {
+    max-width: 570px;
+    color: var(--text-gray);
+    margin: 25px 0;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+
+/* =========================================
+   BOTONES
+========================================= */
+
+.btn {
+    display: inline-block;
+
+    padding: 15px 25px;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    border-radius: 5px;
+
+    transition: 0.3s;
+}
+
+.primary-btn {
+    background: var(--purple);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+}
+
+.primary-btn:hover {
+    background: #a78bfa;
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 0 25px rgba(139, 92, 246, 0.7);
+}
+
+.secondary-btn {
+    border: 1px solid var(--blue);
+    color: var(--blue);
+}
+
+.secondary-btn:hover {
+    background: var(--blue);
+    color: #000;
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.5);
+}
+
+
+/* =========================================
+   CONTROLADOR DEL HERO
+========================================= */
+
+.hero-image {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.controller {
+    width: 300px;
+    height: 300px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 150px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(139, 92, 246, 0.3),
+            transparent 65%
+        );
+
+    filter: drop-shadow(
+        0 0 40px rgba(139, 92, 246, 0.6)
+    );
+
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+
+/* =========================================
+   CATEGORÍAS
+========================================= */
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    margin: 0 7%;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+}
+
+.category {
+    padding: 30px;
+    text-align: center;
+
+    border-right: 1px solid var(--border);
+
+    transition: 0.3s;
+}
+
+.category:last-child {
+    border-right: none;
+}
+
+.category:hover {
+    background: #191930;
+}
+
+.category span {
+    font-size: 35px;
+}
+
+.category h3 {
+    font-size: 14px;
+    margin: 10px 0 5px;
+}
+
+.category p {
+    color: var(--text-gray);
+    font-size: 11px;
+}
+
+
+/* =========================================
+   SECCIONES
+========================================= */
+
+.games-section,
+.consoles {
+    padding: 100px 7%;
+}
+
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+
+    margin-bottom: 40px;
+}
+
+.section-title p {
+    color: var(--blue);
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+.section-title h2 {
+    font-size: 30px;
+}
+
+.view-all {
+    color: var(--purple);
+    font-size: 12px;
+}
+
+.view-all:hover {
+    color: var(--blue);
+}
+
+
+/* =========================================
+   TARJETAS DE JUEGOS
+========================================= */
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.game-card {
+    background: var(--card);
+
+    border: 1px solid rgba(255, 255, 255, 0.05);
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    transition: 0.35s;
+}
+
+.game-card:hover {
+    transform: translateY(-8px);
+
+    border-color: var(--purple);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(139, 92, 246, 0.15);
+}
+
+.game-image {
+    height: 280px;
+
+    position: relative;
+
+    display: flex;
+    align-items: end;
+
+    padding: 15px;
+
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* Fondos de las portadas */
+
+.game1 {
+    background:
+        linear-gradient(
+            180deg,
+            #28145c,
+            #050510
+        );
+}
+
+.game2 {
+    background:
+        linear-gradient(
+            180deg,
+            #073c50,
+            #050510
+        );
+}
+
+.game3 {
+    background:
+        linear-gradient(
+            180deg,
+            #421b52,
+            #050510
+        );
+}
+
+.game4 {
+    background:
+        linear-gradient(
+            180deg,
+            #682c12,
+            #050510
+        );
+}
+
+.game-tag,
+.platform {
+    position: absolute;
+
+    top: 15px;
+
+    padding: 6px 9px;
+
+    border-radius: 4px;
+
+    font-size: 9px;
+    font-weight: bold;
+}
+
+.game-tag {
+    left: 15px;
+
+    background: var(--purple);
+}
+
+.game-tag.sale {
+    background: var(--red);
+}
+
+.platform {
+    right: 15px;
+
+    background: rgba(0, 0, 0, 0.7);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.game-info {
+    padding: 20px;
+}
+
+.genre {
+    color: var(--text-gray);
+    font-size: 9px;
+}
+
+.game-info h3 {
+    font-size: 16px;
+    margin: 8px 0;
+}
+
+.rating {
+    font-size: 11px;
+    color: #ffd700;
+}
+
+.rating span {
+    color: white;
+    margin-left: 5px;
+}
+
+.price {
+    margin-top: 15px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price > span,
+.price div span {
+    color: var(--blue);
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.price del {
+    display: block;
+    color: #666;
+    font-size: 10px;
+}
+
+.price button {
+    width: 35px;
+    height: 35px;
+
+    border: none;
+
+    border-radius: 5px;
+
+    background: var(--purple);
+    color: white;
+
+    font-size: 20px;
+
+    transition: 0.3s;
+}
+
+.price button:hover {
+    background: var(--blue);
+    color: #000;
+}
+
+
+/* =========================================
+   OFERTA
+========================================= */
+
+.offer {
+    margin: 20px 7% 100px;
+
+    min-height: 300px;
+
+    padding: 50px 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border: 1px solid var(--purple);
+
+    background:
+        linear-gradient(
+            100deg,
+            #17112d,
+            #0c1625
+        );
+
+    box-shadow:
+        inset 0 0 60px rgba(139, 92, 246, 0.08),
+        0 0 40px rgba(139, 92, 246, 0.08);
+}
+
+.offer-label {
+    color: var(--green);
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.offer h2 {
+    font-size: 45px;
+    margin: 10px 0;
+}
+
+.offer h2 span {
+    color: var(--purple);
+}
+
+.offer p {
+    max-width: 550px;
+
+    color: var(--text-gray);
+
+    font-family: Arial, sans-serif;
+
+    margin-bottom: 25px;
+}
+
+.discount {
+    width: 220px;
+    height: 220px;
+
+    border: 2px solid var(--purple);
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    box-shadow:
+        0 0 40px rgba(139, 92, 246, 0.25);
+}
+
+.discount span {
+    font-size: 70px;
+    font-weight: bold;
+    color: var(--blue);
+
+    line-height: 0.9;
+}
+
+.discount small {
+    color: var(--blue);
+}
+
+.discount p {
+    margin: 10px 0 0;
+    font-size: 9px;
+    color: white;
+}
+
+
+/* =========================================
+   CONSOLAS
+========================================= */
+
+.console-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.console-card {
+    padding: 40px 30px;
+
+    min-height: 250px;
+
+    border-radius: 8px;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    transition: 0.3s;
+}
+
+.console-card:hover {
+    transform: translateY(-5px);
+}
+
+.playstation {
+    background:
+        linear-gradient(
+            135deg,
+            #101d4b,
+            #07101d
+        );
+}
+
+.xbox {
+    background:
+        linear-gradient(
+            135deg,
+            #12351c,
+            #07110a
+        );
+}
+
+.nintendo {
+    background:
+        linear-gradient(
+            135deg,
+            #4b1118,
+            #130708
+        );
+}
+
+.console-icon {
+    font-size: 45px;
+}
+
+.console-card h3 {
+    margin: 15px 0 5px;
+    font-size: 17px;
+}
+
+.console-card p {
+    color: var(--text-gray);
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+}
+
+.console-card button {
+    margin-top: 25px;
+
+    background: transparent;
+
+    border: none;
+
+    color: white;
+
+    font-size: 10px;
+
+    font-weight: bold;
+}
+
+.console-card button:hover {
+    color: var(--blue);
+}
+
+
+/* =========================================
+   NEWSLETTER
+========================================= */
+
+.newsletter {
+    margin: 0 7% 100px;
+
+    padding: 50px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+}
+
+.newsletter p {
+    color: var(--purple);
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.newsletter h2 {
+    font-size: 22px;
+    margin-top: 5px;
+}
+
+.newsletter form {
+    display: flex;
+}
+
+.newsletter input {
+    width: 300px;
+
+    padding: 15px;
+
+    background: #080812;
+
+    color: white;
+
+    border: 1px solid #292940;
+
+    outline: none;
+}
+
+.newsletter input:focus {
+    border-color: var(--purple);
+}
+
+.newsletter button {
+    padding: 15px 20px;
+
+    background: var(--purple);
+
+    color: white;
+
+    border: none;
+
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.newsletter button:hover {
+    background: var(--blue);
+    color: #000;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+    padding: 70px 7%;
+
+    display: grid;
+
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+
+    gap: 50px;
+
+    background: #05050c;
+
+    border-top: 1px solid var(--border);
+}
+
+.footer-column > p {
+    color: var(--text-gray);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+    margin-top: 15px;
+
+    max-width: 300px;
+}
+
+.footer-column h3 {
+    font-size: 12px;
+
+    color: var(--blue);
+
+    margin-bottom: 20px;
+}
+
+.footer-column > a {
+    display: block;
+
+    color: #88889b;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+    margin-bottom: 10px;
+
+    transition: 0.3s;
+}
+
+.footer-column > a:hover {
+    color: var(--purple);
+    padding-left: 5px;
+}
+
+.social {
+    display: flex;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.social a {
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #292940;
+
+    color: var(--text-gray);
+
+    font-size: 9px;
+
+    border-radius: 5px;
+
+    transition: 0.3s;
+}
+
+.social a:hover {
+    color: var(--blue);
+    border-color: var(--blue);
+}
+
+
+/* =========================================
+   COPYRIGHT
+========================================= */
+
+.copyright {
+    padding: 20px;
+
+    text-align: center;
+
+    background: #030307;
+
+    color: #55556a;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .nav {
+        display: none;
+    }
+
+    .hero {
+        text-align: center;
+        flex-direction: column;
+    }
+
+    .hero-content {
+        max-width: 800px;
+    }
+
+    .hero-text {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-image {
+        width: 100%;
+        margin-top: 40px;
+    }
+
+    .games-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .categories {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .category:nth-child(2) {
+        border-right: none;
+    }
+
+    .category:nth-child(-n+2) {
+        border-bottom: 1px solid var(--border);
+    }
+
+    .console-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .newsletter {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .header {
+        padding: 0 5%;
+    }
+
+    .hero {
+        padding: 60px 5%;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .controller {
+        font-size: 100px;
+        width: 220px;
+        height: 220px;
+    }
+
+    .categories {
+        margin: 0 5%;
+        grid-template-columns: 1fr;
+    }
+
+    .category {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .category:last-child {
+        border-bottom: none;
+    }
+
+    .games-section,
+    .consoles {
+        padding: 70px 5%;
+    }
+
+    .games-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        align-items: start;
+        gap: 20px;
+        flex-direction: column;
+    }
+
+    .offer {
+        margin: 0 5% 70px;
+
+        padding: 40px 25px;
+
+        flex-direction: column;
+        gap: 40px;
+
+        text-align: center;
+    }
+
+    .offer h2 {
+        font-size: 35px;
+    }
+
+    .discount {
+        width: 170px;
+        height: 170px;
+    }
+
+    .discount span {
+        font-size: 55px;
+    }
+
+    .newsletter {
+        margin: 0 5% 70px;
+        padding: 35px 20px;
+    }
+
+    .newsletter form {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .newsletter input {
+        width: 100%;
+    }
+
+    .newsletter button {
+        margin-top: 10px;
+    }
+
+    .footer {
+        padding: 50px 5%;
+        grid-template-columns: 1fr;
+    }
+}
